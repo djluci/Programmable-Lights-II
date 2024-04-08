@@ -1,0 +1,10 @@
+v 4
+file . "pldrom_test2.vhd" "0bd622485d9f6531441cb3e237cb4cf3f4b2ad00" "20231109011215.384":
+  entity pldrom at 2( 14) + 0 on 45;
+  architecture behavioral of pldrom at 13( 221) + 0 on 46;
+file . "pldbench.vhd" "ea20d3c8c12778346bfed397d52a7b20352e19ce" "20231109011215.377":
+  entity pldbench at 8( 91) + 0 on 41;
+  architecture test of pldbench at 15( 193) + 0 on 42;
+file . "pld2.vhd" "9d22469a749be7dd48e4f8750ad5f196408509bd" "20231109011215.381":
+  entity pld2 at 1( 0) + 0 on 43;
+  architecture rtl of pld2 at 17( 297) + 0 on 44;

@@ -1,0 +1,14 @@
+-- pld2.vhd
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all; -- To use unsigned type
+
+entity pld2 is
+	 port(
+		  clk			: in std_logic;
+		  reset		: in std_logic;
+		  lightsig	: out std_logic_vector(7 downto 0);
+		  IRView		: out std_logic_vector(9 downto 0); -- 10 bits
+		  PCView		: out unsigned(3 downto 0)
+	 )
+end entity pld2;

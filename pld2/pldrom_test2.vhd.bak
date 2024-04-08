@@ -1,0 +1,26 @@
+-- pldrom.vhd
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity pldrom is
+    Port (
+		  addr : in std_logic_vector (3 downto 0);
+		  data : out std_logic_vector (9 downto 0)	
+	 );
+end pldrom;
+
+architecture Behavioral of pldrom is 
+begin
+
+	 data <= 
+		  "0001110000" when addr = "0000" else -- Load the number 16 into the LR
+		  "0100100100" when addr = "0001" else -- Subtract 1 from LR and put it back into the LR (decrement)
+		  "1000000001" when addr = "0010" else -- Jump to address "0001" if LR is not zero (continue decrementing)
+		  "0001111111" when addr = "0011" else -- Load the number 255 (all 1s) into the LR
+		  "0110011100" when addr = "0100" else -- XOR the LR with all 1s and write it back to the LR (toggle all bits)
+		  "1000000101" when addr = "0101" else -- Jump to address "0011" (toggle 8 times)
+		  "1000000000" when addr = "0110" else -- Jump back to address "0000" to repeat the process
+		  "1111111111";                        -- Rest of the cases are garbage/no-op
+		  
+end Behavioral;

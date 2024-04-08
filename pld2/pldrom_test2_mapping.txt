@@ -1,0 +1,13 @@
+0000: "0010001000" --0) initialize ACC with 0 (0000 in high and low)
+0001: "0100000000" --1) clear LR before starting the program
+0010: "0111100000" --2) load 16 into the LR
+0011: "0001000000" --3) check if LR is 0, if so branch to instruction 8 to start flashing
+0100: "0111011111" --4) subtract 1 from LR (count down)
+0101: "1100000010" --5) branch back to instruction 2 to continue countdown
+0110: "0111111111" --6) load all 1s into LR (start flash)
+0111: "0010001000" --7) reinitialize ACC for counter
+1000: "0101010101" --8) subtract 1 from ACC to count 8 flashes
+1001: "0001000000" --9) check if ACC is 0, if so branch to instruction 1 to restart program
+1010: "0100000000" --10) load all 0s into LR (continue flash)
+1011: "1100001000" --11) branch back to instruction 8 if ACC is not 0 to continue flashing
+1100: "1100000001" --12) branch back to instruction 1 to clear LR and start countdown again
